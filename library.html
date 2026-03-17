@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - Jack Raines</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            background: #000000;
+            padding: 3rem 1.5rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .book-list {
+            margin-top: 2rem;
+        }
+
+        .book {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #1f2937;
+        }
+
+        .book:last-child {
+            border-bottom: none;
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .book-author {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .book-status {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-reading {
+            background: #1d4ed8;
+            color: #ffffff;
+        }
+
+        .status-finished {
+            background: #166534;
+            color: #ffffff;
+        }
+
+        .status-not-read {
+            background: #374151;
+            color: #d1d5db;
+        }
+
+        .status-dnf {
+            background: #7f1d1d;
+            color: #ffffff;
+        }
+
+        .book-notes {
+            font-size: 0.95rem;
+            color: #d1d5db;
+            margin-top: 0.4rem;
+        }
+
+        .back-link {
+            margin-top: 2rem;
+        }
+
+        .back-link a {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library</h1>
+
+    <p>Books I'm reading, have read, or want to read.</p>
+
+    <div class="book-list">
+
+        <!-- EXAMPLE BOOK — delete or replace -->
+        <div class="book">
+            <div class="book-title"><a href="https://www.amazon.com" target="_blank">Book Title</a></div>
+            <div class="book-author">Author Name</div>
+            <span class="book-status status-not-read">Not Read</span>
+            <div class="book-notes">Notes go here.</div>
+        </div>
+
+    </div>
+
+    <div class="back-link">
+        <a href="/">&larr; Back to Home</a>
+    </div>
+</body>
+</html>
