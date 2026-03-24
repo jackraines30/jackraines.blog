@@ -24,11 +24,11 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.7;
-            color: #ffffff;
-            background: #000000;
-            padding: 3rem 1.5rem;
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.85;
+            color: #1a1a1a;
+            background: #fafafa;
+            padding: 4.5rem 1.5rem 3rem;
             max-width: 650px;
             margin: 0 auto;
         }
@@ -52,33 +52,94 @@
             text-decoration: underline;
         }
 
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #fafafa;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 100;
+        }
+
+        .nav a {
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
         .links {
             margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
         }
 
         .links a {
             display: block;
-            margin-bottom: 0.5rem;
+            padding: 0.6rem 0.5rem;
+            background: transparent;
+            color: #1a1a1a;
+            border: 1.5px solid #1a1a1a;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            transition: background 0.2s, color 0.2s;
         }
 
-        .back-link {
-            margin-top: 2rem;
-        }
-
-        .back-link a {
-            color: #6b7280;
-            font-size: 0.9rem;
+        .links a:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <h1>Young Money</h1>
+    <nav class="nav">
+        <a href="/">Home</a>
+        <a href="https://www.youngmoney.co/">Blog</a>
+        <a href="/about">About</a>
+        <a href="https://github.com/jackraines30">GitHub</a>
+        <a href="mailto:jack@slow.co">Email Me</a>
+    </nav>
 
-    <p>A Field Guide to Wealth and Purpose in Your Twenties.</p>
+    <h1 style="text-align: center;">Young Money</h1>
+
+    <p style="text-align: center;">A Field Guide to Wealth and Purpose in Your Twenties.</p>
 
     <div style="text-align: center; margin: 2rem 0;">
-        <img src="Diagonal_book.png" alt="Young Money book cover" style="max-width: 300px; width: 100%; height: auto;">
+        <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0FZS5PL15/ref=tmm_hrd_swatch_0" target="_blank"><img src="Book Cover Diagonal.png" alt="Young Money book cover" style="max-width: 300px; width: 100%; height: auto;"></a>
     </div>
+
+    <div class="links">
+        <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0FZS5PL15/ref=tmm_hrd_swatch_0" target="_blank">Amazon (Hardcover)</a>
+        <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0G1996VZV" target="_blank">Audible</a>
+        <a href="https://www.barnesandnoble.com/w/young-money-jack-raines/1148682849" target="_blank">Barnes & Noble</a>
+        <a href="https://bookshop.org/p/books/young-money-a-field-guide-to-wealth-and-purpose-in-your-twenties-jack-raines/3bdbc739e3914d1f?ean=9798217046935&next=t" target="_blank">Bookshop.org</a>
+        <a href="https://www.booksamillion.com/p/Young-Money/Jack-Raines/9798217046935" target="_blank">Books-A-Million</a>
+        <a href="https://books.apple.com/us/audiobook/young-money-a-field-guide-to-wealth-and-purpose-in/id1851366422" target="_blank">Apple Books</a>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0;">
+
+    <p><em>"Uncertainty."</em> The default state of one's postcollege twenties can be summed up in one word: <em>"uncertainty."</em> Where should I live? What should I do for work? Should I marry my girlfriend? Should I break up with my boyfriend? Should I quit my job? I have no idea what I'm doing with my life.</p>
+
+    <p>Compound these questions, and more, with the realization that this stage of your life is quickly slipping away as your social media feeds are bombarded with engagement rings, pregnancy announcements, home purchases, and promotions, and it's no surprise that everyone feels like they're falling behind. But falling behind what? Your twenties are painfully short. Graduate college, blink, and you're thirty-three, wondering where the last decade went. It's quite important, then, to make the most of this stage of life before it's gone.</p>
+
+    <p>But how should you approach this stage of life to make the most of it? As a current twenty-eight-year-old (and previous twenty-two-through-twenty-seven-year-old), I've spent my fair share of time wrestling with the more pressing questions of postcollege existence. While I'm not naive enough to think I can tell you, dear reader, what you should do with your life, I do have a few thoughts that just might help you figure out how you should be spending your time.</p>
+
+    <p>This book is really a letter to my twenty-three-year-old self, detailing the experiences he would have over the next few years and unpacking the uncertainties of a young person's personal and professional journey through their twenties. It's less so a <em>"what you should do with your life"</em> and more of a <em>"given what you're going to encounter, here's how to best think through this phase of life"</em> book. If you have your shit together and everything is perfect and your life hasn't sniffed an ounce of self-doubt in years, then this book probably isn't for you. Or maybe it is for you if you want to know how the rest of us live. But if you, like me, have spent a significant amount of your youth asking yourself, <em>Why am I doing this? What should I be doing? Everything just feels so uncertain.</em> Well, this book might be for you.</p>
+
+    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0;">
 
     <p>Available everywhere books are sold.</p>
 
@@ -91,8 +152,5 @@
         <a href="https://books.apple.com/us/audiobook/young-money-a-field-guide-to-wealth-and-purpose-in/id1851366422" target="_blank">Apple Books</a>
     </div>
 
-    <div class="back-link">
-        <a href="/">&larr; Back to Home</a>
-    </div>
 </body>
 </html>
