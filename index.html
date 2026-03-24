@@ -16,7 +16,7 @@
             line-height: 1.7;
             color: #ffffff;
             background: #000000;
-            padding: 3rem 1.5rem;
+            padding: 4.5rem 1.5rem 3rem;
             max-width: 650px;
             margin: 0 auto;
         }
@@ -40,10 +40,34 @@
             text-decoration: underline;
         }
         
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #000000;
+            border-bottom: 1px solid #333;
+            z-index: 100;
+        }
+
+        .nav a {
+            color: #2563eb;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
         .links {
             margin-top: 2rem;
         }
-        
+
         .links a {
             display: inline-block;
             margin: 0.35rem 0.25rem;
@@ -82,6 +106,14 @@
     </style>
 </head>
 <body>
+    <nav class="nav">
+        <a href="https://www.youngmoney.co/">Blog</a>
+        <a href="/book">Book</a>
+        <a href="/library">Library</a>
+        <a href="https://github.com/jackraines30">GitHub</a>
+        <a href="mailto:jack@slow.co">jack@slow.co</a>
+    </nav>
+
     <h1>The Home Page of Jack Raines</h1>
     
     <p>Hello, internet stranger. If you found your way here, I assume you're at least somewhat tangentially interested in me, what I've written, or what I think. Assuming those are true, before you go any further, I recommend you check out my book, Young Money. I would loosely describe it as "life advice for 20-somethings who still want to live a little while they're young," or "a more fun 'Defining Decade.'" Your 20s are this weird, stressful, seemingly-always-high stakes period of life. They're also incredibly fun. So I wrote a book on how to make the most of that weird, stressful, fun period. If you, like me, subjected yourself to occasional (or frequent) bouts of stress and overthinking about making the most of "the current moment," you'll probably like this book. So before reading anything else about me, check out the book.</p>
@@ -132,14 +164,6 @@
     
     <p>I work for an early-stage venture capital fund called <a href="https://slow.co/">Slow Ventures</a>. We have fun. If you're building something interesting, bang my line at <a href="mailto:jack@slow.co">jack@slow.co</a>.</p>
     
-    <div class="links">
-        <a href="https://www.youngmoney.co/">Blog</a>
-        <a href="/book">Book</a>
-        <a href="/library">Library</a>
-        <a href="https://github.com/jackraines30">GitHub</a>
-        <a href="mailto:jack@slow.co">jack@slow.co</a>
-    </div>
-
     <div class="footer-image">
         <img src="IMG_7076.jpeg" alt="Jack Raines">
     </div>
