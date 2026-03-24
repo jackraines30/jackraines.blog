@@ -16,7 +16,7 @@
             line-height: 1.85;
             color: #1a1a1a;
             background: #fafafa;
-            padding: 3rem 1.5rem;
+            padding: 4.5rem 1.5rem 3rem;
             max-width: 650px;
             margin: 0 auto;
         }
@@ -40,6 +40,30 @@
             text-decoration: underline;
         }
 
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #fafafa;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 100;
+        }
+
+        .nav a {
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
         .links {
             margin-top: 2rem;
         }
@@ -60,18 +84,17 @@
             background: #333;
             text-decoration: none;
         }
-
-        .back-link {
-            margin-top: 2rem;
-        }
-
-        .back-link a {
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
     </style>
 </head>
 <body>
+    <nav class="nav">
+        <a href="/">Home</a>
+        <a href="https://www.youngmoney.co/">Blog</a>
+        <a href="/book">Book</a>
+        <a href="https://github.com/jackraines30">GitHub</a>
+        <a href="mailto:jack@slow.co">Email Me</a>
+    </nav>
+
     <h1>Young Money</h1>
 
     <p>A Field Guide to Wealth and Purpose in Your Twenties.</p>
@@ -91,8 +114,5 @@
         <a href="https://books.apple.com/us/audiobook/young-money-a-field-guide-to-wealth-and-purpose-in/id1851366422" target="_blank">Apple Books</a>
     </div>
 
-    <div class="back-link">
-        <a href="/">&larr; Back to Home</a>
-    </div>
 </body>
 </html>
