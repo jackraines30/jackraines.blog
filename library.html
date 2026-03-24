@@ -28,9 +28,33 @@
             line-height: 1.7;
             color: #ffffff;
             background: #000000;
-            padding: 3rem 1.5rem;
+            padding: 4.5rem 1.5rem 3rem;
             max-width: 650px;
             margin: 0 auto;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #000000;
+            border-bottom: 1px solid #1f2937;
+            z-index: 100;
+        }
+
+        .nav a {
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
         }
 
         h1 {
@@ -124,6 +148,15 @@
     </style>
 </head>
 <body>
+    <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/book">Book</a>
+        <a href="/writing">Writing</a>
+        <a href="/projects">Projects</a>
+        <a href="/library">Library</a>
+    </nav>
+
     <h1>Library</h1>
 
     <p>Books I'm reading, have read, or want to read.</p>
@@ -140,8 +173,5 @@
 
     </div>
 
-    <div class="back-link">
-        <a href="/">&larr; Back to Home</a>
-    </div>
 </body>
 </html>
