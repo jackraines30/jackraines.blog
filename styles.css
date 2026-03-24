@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.85;
+    color: #1a1a1a;
+    background: #fafafa;
+    padding: 4.5rem 1.5rem 3rem;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1.25rem;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 100;
+}
+
+.nav a {
+    color: #1a1a1a;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* Index page */
+.links {
+    margin-top: 2rem;
+}
+
+.links a {
+    display: inline-block;
+    margin: 0.35rem 0.25rem;
+    padding: 0.6rem 1.2rem;
+    background: #1a1a1a;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.links a:hover {
+    background: #333;
+    text-decoration: none;
+}
+
+.book-cover {
+    display: block;
+    max-width: 300px;
+    height: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+.image-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.image-item {
+    width: 45%;
+    max-width: 280px;
+    text-align: center;
+}
+
+.image-row img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.image-label {
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+}
+
+/* About page */
+.contact-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contact-list li {
+    margin-bottom: 0.4rem;
+}
+
+/* Book page */
+.links.book-links {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.links.book-links a {
+    display: block;
+    padding: 0.6rem 0.5rem;
+    background: transparent;
+    color: #1a1a1a;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+    margin: 0;
+}
+
+.links.book-links a:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    text-decoration: none;
+}
