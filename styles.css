@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,28 +7,41 @@
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', serif;
-    line-height: 1.9;
-    color: #1a1a1a;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: #1c1917;
     background: #f9f6f1;
-    padding: 4.5rem 1.5rem 4rem;
-    max-width: 650px;
+    padding: 5rem 1.5rem 5rem;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 h1 {
-    font-size: 1.75rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.6rem;
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: #1c1917;
     margin-bottom: 1.5rem;
 }
 
 h2 {
-    font-size: 1.35rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.05rem;
     font-weight: 600;
     letter-spacing: -0.01em;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1c1917;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+}
+
+p {
+    margin-bottom: 1.3rem;
+    color: #292524;
 }
 
 ul {
@@ -35,25 +50,32 @@ ul {
 }
 
 li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
-p {
+ol {
+    padding-left: 1.5rem;
     margin-bottom: 1.25rem;
 }
 
+ol li {
+    margin-bottom: 0.5rem;
+}
+
 a {
-    color: #92400e;
+    color: #1c1917;
     text-decoration: underline;
-    text-decoration-color: transparent;
+    text-decoration-color: #c4a882;
     text-underline-offset: 3px;
-    transition: text-decoration-color 0.15s ease;
+    transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }
 
 a:hover {
-    text-decoration-color: #92400e;
+    color: #78350f;
+    text-decoration-color: #78350f;
 }
 
+/* Nav */
 .nav {
     position: fixed;
     top: 0;
@@ -61,83 +83,57 @@ a:hover {
     right: 0;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 0.75rem 1.5rem;
+    gap: 2rem;
+    padding: 0.9rem 1.5rem;
     background: #f9f6f1;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.07);
     z-index: 100;
 }
 
 .nav a {
-    color: #1a1a1a;
-    font-size: 0.95rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.8rem;
     font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #78716c;
     text-decoration: none;
-    text-underline-offset: 3px;
-    transition: opacity 0.15s ease;
+    transition: color 0.15s ease;
 }
 
 .nav a:hover {
-    opacity: 0.6;
+    color: #1c1917;
     text-decoration: none;
 }
 
 /* Index page */
-.links {
-    margin-top: 2rem;
-}
-
-.links a {
-    display: inline-block;
-    margin: 0.35rem 0.25rem;
-    padding: 0.6rem 1.2rem;
-    background: #1a1a1a;
-    color: #ffffff;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s;
-}
-
-.links a:hover {
-    background: #333;
-    text-decoration: none;
-}
-
-.book-cover {
-    display: block;
-    max-width: 300px;
-    height: auto;
-    margin: 1.5rem 0;
-    border-radius: 8px;
-}
-
 .image-row {
     display: flex;
     gap: 1.5rem;
     align-items: flex-end;
     justify-content: center;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
 }
 
 .image-item {
     width: 45%;
-    max-width: 280px;
+    max-width: 260px;
     text-align: center;
 }
 
 .image-row img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .image-label {
-    font-size: 0.85rem;
-    color: #888;
-    font-style: italic;
-    margin-top: 0.4rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.78rem;
+    color: #a8a29e;
+    font-style: normal;
+    letter-spacing: 0.02em;
+    margin-top: 0.5rem;
     margin-bottom: 0;
 }
 
@@ -148,69 +144,187 @@ a:hover {
 }
 
 .contact-list li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.9rem;
 }
 
-/* Book page */
-.links.book-links {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-}
-
-.links.book-links a {
-    display: block;
-    padding: 0.6rem 0.5rem;
-    background: transparent;
-    color: #1a1a1a;
-    border: 1.5px solid #1a1a1a;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-    margin: 0;
-}
-
-.links.book-links a:hover {
-    background: #1a1a1a;
-    color: #ffffff;
-    text-decoration: none;
-}
-
-/* Writing page essay list */
+/* Writing page */
 .essay-list {
     list-style: none;
     padding-left: 0;
 }
 
 .essay-list li {
-    padding: 0.6rem 0;
-    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid #ede8e0;
     margin-bottom: 0;
 }
 
 .essay-list li:first-child {
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid #ede8e0;
+}
+
+.essay-list li a {
+    font-size: 0.95rem;
+    color: #1c1917;
+    text-decoration: none;
+    flex: 1;
+    transition: color 0.15s ease;
+}
+
+.essay-list li a:hover {
+    color: #78350f;
+}
+
+.essay-list li .date {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.78rem;
+    color: #a8a29e;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Book page */
+.book-hero {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin: 0 0 2.5rem;
+}
+
+.book-hero img {
+    width: 180px;
+    min-width: 180px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.book-hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0.25rem;
+    gap: 0.4rem;
+}
+
+.book-subtitle {
+    font-size: 0.95rem;
+    color: #78716c;
+    font-style: italic;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.book-pubdate {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.8rem;
+    color: #a8a29e;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.buy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.buy-grid a {
+    display: block;
+    padding: 0.55rem 0.4rem;
+    background: transparent;
+    color: #1c1917;
+    border: 1px solid #d6cfc6;
+    border-radius: 5px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.buy-grid a:hover {
+    background: #1c1917;
+    color: #f9f6f1;
+    border-color: #1c1917;
+    text-decoration: none;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ede8e0;
+    margin: 2.5rem 0;
+}
+
+/* Links block (index) */
+.links {
+    margin-top: 2rem;
+}
+
+.links a {
+    display: inline-block;
+    margin: 0.3rem 0.2rem;
+    padding: 0.55rem 1.1rem;
+    background: #1c1917;
+    color: #f9f6f1;
+    border-radius: 5px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.links a:hover {
+    background: #44403c;
+    text-decoration: none;
+    color: #f9f6f1;
 }
 
 /* Mobile */
 @media (max-width: 480px) {
+    body {
+        font-size: 1rem;
+    }
+
     .nav {
-        gap: 1rem;
+        gap: 1.1rem;
+        padding: 0.8rem 1rem;
     }
 
     .nav a {
-        font-size: 0.85rem;
+        font-size: 0.72rem;
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
-    h2 {
-        font-size: 1.2rem;
+    .book-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-hero img {
+        width: 150px;
+        min-width: 150px;
+    }
+
+    .buy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .essay-list li {
+        flex-direction: column;
+        gap: 0.15rem;
     }
 }
