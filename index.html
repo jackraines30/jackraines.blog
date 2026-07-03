@@ -23,61 +23,36 @@
             padding: 0;
         }
 
-        /* Full-width nav */
-        .home-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.1rem 3rem;
-            background: #f9f6f1;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.07);
-            z-index: 100;
-        }
-
-        .home-nav .logo {
-            font-family: 'Inter', system-ui, sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #1c1917;
-            text-decoration: none;
-        }
-
-        .home-nav .logo:hover {
-            color: #78350f;
-            text-decoration: none;
-        }
-
-        .home-nav .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .home-nav .nav-links a {
-            font-family: 'Inter', system-ui, sans-serif;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.07em;
-            text-transform: uppercase;
-            color: #78716c;
-            text-decoration: none;
-            transition: color 0.15s ease;
-        }
-
-        .home-nav .nav-links a:hover {
-            color: #1c1917;
-        }
-
         /* Hero */
         .hero {
-            max-width: 600px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 14rem 1.5rem 5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .hero-photo {
+            width: 260px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 1rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
         }
 
         .hero-name {
@@ -184,21 +159,19 @@
         }
 
         /* Mobile */
-        @media (max-width: 600px) {
-            .home-nav {
-                padding: 0.9rem 1.25rem;
-            }
-
-            .home-nav .nav-links {
-                gap: 1.1rem;
-            }
-
-            .home-nav .nav-links a {
-                font-size: 0.72rem;
-            }
-
+        @media (max-width: 700px) {
             .hero {
-                padding-top: 10rem;
+                flex-direction: column;
+                padding-top: 8rem;
+                gap: 2rem;
+            }
+
+            .hero-photo {
+                width: 100%;
+            }
+
+            .hero-photo img {
+                height: 260px;
             }
 
             .hero-name {
@@ -209,8 +182,8 @@
 </head>
 <body>
 
-    <nav class="home-nav">
-        <a href="/" class="logo">Jack Raines</a>
+    <nav class="nav">
+        <a href="/" class="nav-logo">Jack Raines</a>
         <div class="nav-links">
             <a href="/about">About</a>
             <a href="/book">Book</a>
@@ -220,12 +193,17 @@
     </nav>
 
     <div class="hero">
-        <h1 class="hero-name">Jack<br>Raines.</h1>
-        <p class="hero-tagline">Author. Investor. Raconteur.</p>
-        <div class="hero-links">
-            <a href="/book" class="primary">Young Money →</a>
-            <a href="/writing" class="secondary">Writing</a>
-            <a href="https://www.youngmoney.co/" target="_blank" class="secondary">Newsletter</a>
+        <div class="hero-text">
+            <h1 class="hero-name">Jack<br>Raines.</h1>
+            <p class="hero-tagline">Author. Investor. Raconteur.</p>
+            <div class="hero-links">
+                <a href="/book" class="primary">Young Money →</a>
+                <a href="/writing" class="secondary">Writing</a>
+                <a href="https://www.youngmoney.co/" target="_blank" class="secondary">Newsletter</a>
+            </div>
+        </div>
+        <div class="hero-photo">
+            <img src="IMG_1618.jpg" alt="Jack Raines">
         </div>
     </div>
 
