@@ -51,7 +51,7 @@
             width: 100%;
             height: 340px;
             object-fit: cover;
-            object-position: center top;
+            object-position: center 60%;
             display: block;
         }
 
@@ -158,11 +158,32 @@
             margin: 4rem 0;
         }
 
-        /* Mobile */
-        @media (max-width: 700px) {
+        /* Tablet: shrink photo, keep side by side */
+        @media (max-width: 860px) and (min-width: 501px) {
+            .hero {
+                gap: 2rem;
+                padding: 10rem 1.5rem 4rem;
+            }
+
+            .hero-photo {
+                width: 200px;
+                min-width: 200px;
+            }
+
+            .hero-photo img {
+                height: 280px;
+            }
+
+            .hero-name {
+                font-size: 2.6rem;
+            }
+        }
+
+        /* Mobile: stack vertically */
+        @media (max-width: 500px) {
             .hero {
                 flex-direction: column;
-                padding-top: 7rem;
+                padding-top: 6rem;
                 gap: 1.5rem;
             }
 
@@ -171,8 +192,8 @@
             }
 
             .hero-photo img {
-                height: 220px;
-                object-position: center 30%;
+                height: 200px;
+                object-position: center 65%;
             }
 
             .hero-name {
