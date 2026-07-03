@@ -18,13 +18,12 @@
     <meta name="twitter:image" content="og-image.jpg">
     <link rel="stylesheet" href="/styles.css">
     <style>
-        /* Homepage-specific overrides */
         body {
             max-width: 100%;
             padding: 0;
         }
 
-        /* Full-width nav for homepage */
+        /* Full-width nav */
         .home-nav {
             position: fixed;
             top: 0;
@@ -57,7 +56,6 @@
         .home-nav .nav-links {
             display: flex;
             gap: 2rem;
-            align-items: center;
         }
 
         .home-nav .nav-links a {
@@ -77,27 +75,19 @@
 
         /* Hero */
         .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 100vh;
-            padding-top: 60px; /* nav height */
-        }
-
-        .hero-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 5rem 3.5rem 5rem 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 14rem 1.5rem 5rem;
         }
 
         .hero-name {
             font-family: 'Inter', system-ui, sans-serif;
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-size: clamp(3rem, 6vw, 4.5rem);
             font-weight: 600;
-            letter-spacing: -0.03em;
-            line-height: 1.05;
+            letter-spacing: -0.035em;
+            line-height: 1.0;
             color: #1c1917;
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
         }
 
         .hero-tagline {
@@ -113,6 +103,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.6rem;
+            margin-bottom: 0;
         }
 
         .hero-links a {
@@ -123,7 +114,7 @@
             padding: 0.6rem 1.2rem;
             border-radius: 4px;
             text-decoration: none;
-            transition: background 0.15s, color 0.15s;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
         }
 
         .hero-links a.primary {
@@ -144,32 +135,18 @@
 
         .hero-links a.secondary:hover {
             border-color: #1c1917;
-            color: #1c1917;
         }
 
-        .hero-right {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-right img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-        }
-
-        /* About section below hero */
+        /* Content below hero */
         .content-section {
             max-width: 600px;
             margin: 0 auto;
-            padding: 5rem 1.5rem 5rem;
+            padding: 5rem 1.5rem 6rem;
         }
 
         .content-section h2 {
             font-family: 'Inter', system-ui, sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -195,6 +172,11 @@
             margin-bottom: 1.3rem;
         }
 
+        .content-section ul.plain {
+            list-style: none;
+            padding-left: 0;
+        }
+
         .section-divider {
             border: none;
             border-top: 1px solid #ede8e0;
@@ -202,7 +184,7 @@
         }
 
         /* Mobile */
-        @media (max-width: 700px) {
+        @media (max-width: 600px) {
             .home-nav {
                 padding: 0.9rem 1.25rem;
             }
@@ -216,25 +198,11 @@
             }
 
             .hero {
-                grid-template-columns: 1fr;
-                min-height: auto;
-            }
-
-            .hero-right {
-                height: 60vw;
-                order: -1;
-            }
-
-            .hero-left {
-                padding: 2.5rem 1.25rem 3rem;
+                padding-top: 10rem;
             }
 
             .hero-name {
-                font-size: 2.2rem;
-            }
-
-            .content-section {
-                padding: 3rem 1.25rem 4rem;
+                font-size: 3rem;
             }
         }
     </style>
@@ -247,31 +215,25 @@
             <a href="/about">About</a>
             <a href="/book">Book</a>
             <a href="/writing">Writing</a>
-            <a href="/projects">Projects</a>
             <a href="/library">Library</a>
         </div>
     </nav>
 
     <div class="hero">
-        <div class="hero-left">
-            <h1 class="hero-name">Jack<br>Raines.</h1>
-            <p class="hero-tagline">Author. Investor. Raconteur.</p>
-            <div class="hero-links">
-                <a href="/book" class="primary">Young Money →</a>
-                <a href="/writing" class="secondary">Writing</a>
-                <a href="https://www.youngmoney.co/" target="_blank" class="secondary">Newsletter</a>
-            </div>
-        </div>
-        <div class="hero-right">
-            <img src="IMG_7076.jpeg" alt="Jack Raines">
+        <h1 class="hero-name">Jack<br>Raines.</h1>
+        <p class="hero-tagline">Author. Investor. Raconteur.</p>
+        <div class="hero-links">
+            <a href="/book" class="primary">Young Money →</a>
+            <a href="/writing" class="secondary">Writing</a>
+            <a href="https://www.youngmoney.co/" target="_blank" class="secondary">Newsletter</a>
         </div>
     </div>
 
     <div class="content-section">
 
         <h2>About</h2>
-        <p>I'm a writer and investor based in New York City. I've been writing <a href="https://www.youngmoney.co/" target="_blank">Young Money</a> on Substack since 2021 — essays on markets, life, and everything in between. My first book, <a href="/book"><em>Young Money: A Field Guide to Wealth and Purpose in Your Twenties</em></a>, comes out August 4, 2026.</p>
-        <p>By day I'm an investor at <a href="https://slow.co/" target="_blank">Slow Ventures</a>, where I work on our seed fund and Creator Fund. If you're building something interesting, reach me at <a href="mailto:jack@slow.co">jack@slow.co</a>.</p>
+        <p>I'm a writer and investor based in New York City. I've been writing <a href="https://www.youngmoney.co/" target="_blank">Young Money</a> on Substack since 2021 — essays on markets, life, and everything in between. My first book, <a href="/book"><em>Young Money: A Field Guide to Wealth and Purpose in Your Twenties</em></a>, is out August 4, 2026.</p>
+        <p>By day I'm an investor at <a href="https://slow.co/" target="_blank">Slow Ventures</a>, working on our seed fund and Creator Fund. If you're building something interesting, reach me at <a href="mailto:jack@slow.co">jack@slow.co</a>.</p>
 
         <hr class="section-divider">
 
@@ -287,7 +249,7 @@
         <hr class="section-divider">
 
         <h2>Find Me</h2>
-        <ul style="list-style:none; padding-left:0;">
+        <ul class="plain">
             <li><a href="https://www.youngmoney.co/" target="_blank">Substack</a></li>
             <li><a href="https://x.com/Jack_Raines" target="_blank">X / Twitter</a></li>
             <li><a href="https://www.linkedin.com/in/jackraines/" target="_blank">LinkedIn</a></li>
