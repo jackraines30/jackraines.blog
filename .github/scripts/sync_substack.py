@@ -42,7 +42,7 @@ def format_entry(title: str, url: str, date: datetime) -> str:
     return (
         f'        <li>'
         f'<a href="{url}">{escaped_title}</a> '
-        f'<span style="color: #888; font-size: 0.9em;">({date_str})</span>'
+        f'<span class="date">({date_str})</span>'
         f'</li>'
     )
 
