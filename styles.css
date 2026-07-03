@@ -6,23 +6,25 @@
 
 body {
     font-family: Georgia, 'Times New Roman', serif;
-    line-height: 1.85;
+    line-height: 1.9;
     color: #1a1a1a;
     background: #fafafa;
-    padding: 4.5rem 1.5rem 3rem;
+    padding: 4.5rem 1.5rem 4rem;
     max-width: 650px;
     margin: 0 auto;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 600;
+    letter-spacing: -0.01em;
     margin-bottom: 1.5rem;
 }
 
 h2 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 600;
+    letter-spacing: -0.01em;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
 }
@@ -41,12 +43,15 @@ p {
 }
 
 a {
-    color: #2563eb;
-    text-decoration: none;
+    color: #1d4ed8;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s ease;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration-color: #1d4ed8;
 }
 
 .nav {
@@ -59,7 +64,7 @@ a:hover {
     gap: 1.5rem;
     padding: 0.75rem 1.5rem;
     background: #fafafa;
-    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
     z-index: 100;
 }
 
@@ -67,10 +72,14 @@ a:hover {
     color: #1a1a1a;
     font-size: 0.95rem;
     font-weight: 500;
+    text-decoration: none;
+    text-underline-offset: 3px;
+    transition: opacity 0.15s ease;
 }
 
 .nav a:hover {
-    text-decoration: underline;
+    opacity: 0.6;
+    text-decoration: none;
 }
 
 /* Index page */
@@ -87,6 +96,7 @@ a:hover {
     border-radius: 6px;
     font-size: 0.95rem;
     font-weight: 500;
+    text-decoration: none;
     transition: background 0.2s;
 }
 
@@ -159,6 +169,7 @@ a:hover {
     font-size: 0.95rem;
     font-weight: 500;
     text-align: center;
+    text-decoration: none;
     transition: background 0.2s, color 0.2s;
     margin: 0;
 }
@@ -167,4 +178,39 @@ a:hover {
     background: #1a1a1a;
     color: #ffffff;
     text-decoration: none;
+}
+
+/* Writing page essay list */
+.essay-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.essay-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 0;
+}
+
+.essay-list li:first-child {
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .nav {
+        gap: 1rem;
+    }
+
+    .nav a {
+        font-size: 0.85rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
 }
