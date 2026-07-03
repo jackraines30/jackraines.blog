@@ -8,7 +8,7 @@ body {
     font-family: Georgia, 'Times New Roman', serif;
     line-height: 1.9;
     color: #1a1a1a;
-    background: #fafafa;
+    background: #f9f6f1;
     padding: 4.5rem 1.5rem 4rem;
     max-width: 650px;
     margin: 0 auto;
@@ -43,7 +43,7 @@ p {
 }
 
 a {
-    color: #1d4ed8;
+    color: #92400e;
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: 3px;
@@ -51,7 +51,7 @@ a {
 }
 
 a:hover {
-    text-decoration-color: #1d4ed8;
+    text-decoration-color: #92400e;
 }
 
 .nav {
@@ -63,7 +63,7 @@ a:hover {
     justify-content: center;
     gap: 1.5rem;
     padding: 0.75rem 1.5rem;
-    background: #fafafa;
+    background: #f9f6f1;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
     z-index: 100;
 }
