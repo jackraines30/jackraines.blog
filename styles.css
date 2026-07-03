@@ -82,15 +82,36 @@ a:hover {
     left: 0;
     right: 0;
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 0.9rem 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 3rem;
     background: #f9f6f1;
     box-shadow: 0 1px 0 rgba(0,0,0,0.07);
     z-index: 100;
 }
 
-.nav a {
+.nav .nav-logo {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1c1917;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.nav .nav-logo:hover {
+    color: #78350f;
+    text-decoration: none;
+}
+
+.nav .nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav .nav-links a {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 0.8rem;
     font-weight: 500;
@@ -101,7 +122,7 @@ a:hover {
     transition: color 0.15s ease;
 }
 
-.nav a:hover {
+.nav .nav-links a:hover {
     color: #1c1917;
     text-decoration: none;
 }
@@ -296,11 +317,14 @@ a:hover {
     }
 
     .nav {
-        gap: 1.1rem;
-        padding: 0.8rem 1rem;
+        padding: 0.8rem 1.25rem;
     }
 
-    .nav a {
+    .nav .nav-links {
+        gap: 1.1rem;
+    }
+
+    .nav .nav-links a {
         font-size: 0.72rem;
     }
 
