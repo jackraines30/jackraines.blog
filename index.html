@@ -49,10 +49,9 @@
 
         .hero-photo img {
             width: 100%;
-            height: 340px;
-            object-fit: cover;
-            object-position: center 60%;
+            height: auto;
             display: block;
+            border-radius: 8px;
         }
 
         .hero-name {
@@ -158,25 +157,22 @@
             margin: 4rem 0;
         }
 
-        /* Below 750px: hide the photo, single column text */
-        @media (max-width: 750px) {
+        /* Below 800px: stack vertically, full uncropped photo */
+        @media (max-width: 800px) {
             .hero {
                 flex-direction: column;
                 padding: 7rem 1.25rem 3rem;
-                gap: 0;
+                gap: 1.5rem;
                 max-width: 100%;
             }
 
             .hero-photo {
-                display: none;
+                display: block;
+                width: 100%;
             }
 
             .hero-name {
-                font-size: 2.6rem;
-            }
-
-            .hero-links {
-                margin-top: 0;
+                font-size: 2.4rem;
             }
 
             .hero-links a {
