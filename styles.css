@@ -208,6 +208,18 @@ a:hover {
     color: #78350f;
 }
 
+.essay-list li .source {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.78rem;
+    color: #a8a29e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+    width: 9rem;
+    text-align: right;
+}
+
 .essay-list li .date {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 0.78rem;
@@ -363,5 +375,10 @@ a:hover {
     .essay-list li {
         flex-direction: column;
         gap: 0.15rem;
+    }
+
+    .essay-list li .source {
+        width: auto;
+        text-align: left;
     }
 }
