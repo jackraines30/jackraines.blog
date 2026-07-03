@@ -9,67 +9,292 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <meta property="og:title" content="Jack Raines">
-    <meta property="og:description" content="Writer. Author of Young Money.">
+    <meta property="og:description" content="Author. Investor. Raconteur.">
     <meta property="og:image" content="og-image.jpg">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Jack Raines">
-    <meta name="twitter:description" content="Writer. Author of Young Money.">
+    <meta name="twitter:description" content="Author. Investor. Raconteur.">
     <meta name="twitter:image" content="og-image.jpg">
     <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Homepage-specific overrides */
+        body {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        /* Full-width nav for homepage */
+        .home-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 3rem;
+            background: #f9f6f1;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+            z-index: 100;
+        }
+
+        .home-nav .logo {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #1c1917;
+            text-decoration: none;
+        }
+
+        .home-nav .logo:hover {
+            color: #78350f;
+            text-decoration: none;
+        }
+
+        .home-nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .home-nav .nav-links a {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: #78716c;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .home-nav .nav-links a:hover {
+            color: #1c1917;
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            padding-top: 60px; /* nav height */
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem 3.5rem 5rem 3rem;
+        }
+
+        .hero-name {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            color: #1c1917;
+            margin-bottom: 1rem;
+        }
+
+        .hero-tagline {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #78716c;
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .hero-links a {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .hero-links a.primary {
+            background: #1c1917;
+            color: #f9f6f1;
+        }
+
+        .hero-links a.primary:hover {
+            background: #44403c;
+            color: #f9f6f1;
+        }
+
+        .hero-links a.secondary {
+            background: transparent;
+            color: #1c1917;
+            border: 1px solid #d6cfc6;
+        }
+
+        .hero-links a.secondary:hover {
+            border-color: #1c1917;
+            color: #1c1917;
+        }
+
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        /* About section below hero */
+        .content-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem 5rem;
+        }
+
+        .content-section h2 {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #a8a29e;
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+        }
+
+        .content-section p {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #292524;
+            margin-bottom: 1.3rem;
+        }
+
+        .content-section ul {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #292524;
+            padding-left: 1.5rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid #ede8e0;
+            margin: 4rem 0;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            .home-nav {
+                padding: 0.9rem 1.25rem;
+            }
+
+            .home-nav .nav-links {
+                gap: 1.1rem;
+            }
+
+            .home-nav .nav-links a {
+                font-size: 0.72rem;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-right {
+                height: 60vw;
+                order: -1;
+            }
+
+            .hero-left {
+                padding: 2.5rem 1.25rem 3rem;
+            }
+
+            .hero-name {
+                font-size: 2.2rem;
+            }
+
+            .content-section {
+                padding: 3rem 1.25rem 4rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/book">Book</a>
-        <a href="/writing">Writing</a>
-        <a href="/projects">Projects</a>
-        <a href="/library">Library</a>
+
+    <nav class="home-nav">
+        <a href="/" class="logo">Jack Raines</a>
+        <div class="nav-links">
+            <a href="/about">About</a>
+            <a href="/book">Book</a>
+            <a href="/writing">Writing</a>
+            <a href="/projects">Projects</a>
+            <a href="/library">Library</a>
+        </div>
     </nav>
 
-    <h1>The Home Page of Jack Raines</h1>
-
-    <p>Hello, internet stranger. If you found your way here, I assume you're at least somewhat tangentially interested in me, what I've written, or what I think. So I'll tell you a bit about all of the above. But before you go any further, I recommend you check out my book, <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0FZS5PL15/ref=tmm_hrd_swatch_0" target="_blank"><em>Young Money</em></a>.</p>
-
-    <div class="image-row">
-        <div class="image-item">
-            <img src="IMG_7076.jpeg" alt="Jack Raines">
-            <p class="image-label">Jack (not book)</p>
+    <div class="hero">
+        <div class="hero-left">
+            <h1 class="hero-name">Jack<br>Raines.</h1>
+            <p class="hero-tagline">Author. Investor. Raconteur.</p>
+            <div class="hero-links">
+                <a href="/book" class="primary">Young Money →</a>
+                <a href="/writing" class="secondary">Writing</a>
+                <a href="https://www.youngmoney.co/" target="_blank" class="secondary">Newsletter</a>
+            </div>
         </div>
-        <div class="image-item">
-            <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0FZS5PL15/ref=tmm_hrd_swatch_0" target="_blank">
-                <img src="Book_Cover_Diagonal.png" alt="Young Money book cover">
-            </a>
-            <p class="image-label">book (not Jack)</p>
+        <div class="hero-right">
+            <img src="IMG_7076.jpeg" alt="Jack Raines">
         </div>
     </div>
 
+    <div class="content-section">
 
-    <p> I would loosely describe it as "life advice for 20-somethings who still want to live a little while they're young," or "a more fun <em>Defining Decade</em>." Your 20s are this weird, stressful, seemingly-always-high-stakes period of life. They're also incredibly fun. So I wrote a book on how to make the most of that weird, stressful, fun period. If you, like me, subjected yourself to occasional (or frequent) bouts of stress and overthinking about making the most of "the current moment," you'll probably like this book.</p>
+        <h2>About</h2>
+        <p>I'm a writer and investor based in New York City. I've been writing <a href="https://www.youngmoney.co/" target="_blank">Young Money</a> on Substack since 2021 — essays on markets, life, and everything in between. My first book, <a href="/book"><em>Young Money: A Field Guide to Wealth and Purpose in Your Twenties</em></a>, comes out August 4, 2026.</p>
+        <p>By day I'm an investor at <a href="https://slow.co/" target="_blank">Slow Ventures</a>, where I work on our seed fund and Creator Fund. If you're building something interesting, reach me at <a href="mailto:jack@slow.co">jack@slow.co</a>.</p>
 
+        <hr class="section-divider">
 
-    <h2>About Me (in 25 seconds)</h2>
+        <h2>Favorite Essays</h2>
+        <ul>
+            <li><a href="https://www.youngmoney.co/p/opportunity-cost-everything" target="_blank">The Opportunity Cost of Everything</a></li>
+            <li><a href="https://www.youngmoney.co/p/the-late-20-somethings-professional" target="_blank">The Late 20-Something's Professional Dilemma</a></li>
+            <li><a href="https://www.youngmoney.co/p/the-cost-of-apathy" target="_blank">The Cost of Apathy</a></li>
+            <li><a href="https://www.youngmoney.co/p/chapter-58-from-india-with-love" target="_blank">From India, With Love</a></li>
+            <li><a href="https://www.youngmoney.co/p/chapter-20-tallest-man-in-europe" target="_blank">The Tallest Man in Europe</a></li>
+        </ul>
 
-    <p> I'm an investor, <a href="https://www.youngmoney.co/" target="_blank">writer</a>, <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0FZS5PL15/ref=tmm_hrd_swatch_0" target="_blank">author</a>, occasional <a href="https://www.linkedin.com/posts/jackraines_beermile-sigmagrindset-iputthegoldingoldman-activity-7054462511835705345-fVVJ" target="_blank">Linkedin shitposter</a>, former <a href="https://www.youngmoney.co/p/pre-travel-check" target="_blank">vagabond traveler</a>, occasional <a href="https://www.youngmoney.co/p/gone-sixty-seconds?utm_source=publication-search" target="_blank">markets speculator</a>, <a href="https://x.com/Jack_Raines" target="_blank">Twitter addict</a>, mediocre Spanish speaker, Citibike connoisseur, New York City fanatic, business school apologist, and proud personality hire in most aspects of life.</p>
+        <hr class="section-divider">
 
-    <h2>About Me (in more detail)</h2>
+        <h2>Find Me</h2>
+        <ul style="list-style:none; padding-left:0;">
+            <li><a href="https://www.youngmoney.co/" target="_blank">Substack</a></li>
+            <li><a href="https://x.com/Jack_Raines" target="_blank">X / Twitter</a></li>
+            <li><a href="https://www.linkedin.com/in/jackraines/" target="_blank">LinkedIn</a></li>
+            <li><a href="mailto:jack@youngmoney.co">jack@youngmoney.co</a></li>
+        </ul>
 
-    <p> Check my <a href="/about">about page.</a> </p>
-
-    <h2>Writing</h2>
-
-    <p>I've been writing a Substack called <a href="https://www.youngmoney.co/">Young Money</a> since 2021. It was, initially, a finance blog, and then it was a finance blog + travel blog, and now it's the home of all of my long-form writing, from financial market musings to adventures in Tromsø and Tel Aviv to my more philosophical thoughts on life. You can view the full chronological list of my essays on the <a href="https://jackraines.blog/writing">writing page</a> on this website.</p>
-
-    <p>Some favorites:</p>
-    <ul>
-        <li><a href="https://www.youngmoney.co/p/opportunity-cost-everything">The Opportunity Cost of Everything</a> (my favorite blog)</li>
-        <li><a href="https://www.youngmoney.co/p/the-late-20-somethings-professional">The Late 20-Something's Professional Dilemma</a> (inspiration for the book)</li>
-        <li><a href="https://www.youngmoney.co/p/the-cost-of-apathy">The Cost of Apathy</a> (also inspiration for the book)</li>
-        <li><a href="https://www.youngmoney.co/p/chapter-58-from-india-with-love">From India, With Love</a> (a wedding in India)</li>
-        <li><a href="https://www.youngmoney.co/p/chapter-20-tallest-man-in-europe">The Tallest Man in Europe</a> (getting deported from Norway)</li>
-        <li><a href="https://www.youngmoney.co/p/chapter-51-sumo-sake-and-some-naked">Sumo, Sake, and Some Naked Dudes</a> (Japan trip, with a sumo wrestling tournament)</li>
-    </ul>
+    </div>
 
 </body>
 </html>
