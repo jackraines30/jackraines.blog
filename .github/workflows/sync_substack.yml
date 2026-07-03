@@ -1,0 +1,36 @@
+name: Sync Substack Posts
+
+on:
+  schedule:
+    - cron: '0 13 * * 1'  # Every Monday at 9am EDT (13:00 UTC)
+  workflow_dispatch:       # Allow manual runs from the Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install feedparser
+
+      - name: Sync Substack posts to writing.html
+        run: python .github/scripts/sync_substack.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add writing.html
+          git diff --cached --quiet || git commit -m "Auto-sync: add new Substack posts [skip ci]"
+          git push
