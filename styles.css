@@ -88,6 +88,7 @@ a:hover {
     background: #f9f6f1;
     box-shadow: 0 1px 0 rgba(0,0,0,0.07);
     z-index: 100;
+    min-width: 0;
 }
 
 .nav .nav-logo {
@@ -99,6 +100,8 @@ a:hover {
     color: #1c1917;
     text-decoration: none;
     transition: color 0.15s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .nav .nav-logo:hover {
@@ -109,6 +112,7 @@ a:hover {
 .nav .nav-links {
     display: flex;
     gap: 2rem;
+    flex-shrink: 0;
 }
 
 .nav .nav-links a {
@@ -320,12 +324,18 @@ a:hover {
         padding: 0.8rem 1.25rem;
     }
 
+    .nav .nav-logo {
+        font-size: 0.75rem;
+        letter-spacing: 0.07em;
+    }
+
     .nav .nav-links {
-        gap: 1.1rem;
+        gap: 1rem;
     }
 
     .nav .nav-links a {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
     }
 
     h1 {
