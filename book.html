@@ -17,6 +17,98 @@
     <meta name="twitter:description" content="Young Money by Jack Raines. Available now.">
     <meta name="twitter:image" content="book-photo.jpg">
     <link rel="stylesheet" href="/styles.css">
+    <style>
+        .book-hero {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+            margin: 2rem 0 2.5rem;
+        }
+
+        .book-hero img {
+            width: 160px;
+            min-width: 160px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .book-hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .book-hero-text h1 {
+            margin-bottom: 0.1rem;
+        }
+
+        .book-subtitle {
+            font-size: 1rem;
+            color: #555;
+            font-style: italic;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .book-pubdate {
+            font-size: 0.9rem;
+            color: #888;
+            margin: 0;
+        }
+
+        .buy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .buy-grid a {
+            display: block;
+            padding: 0.6rem 0.5rem;
+            background: transparent;
+            color: #92400e;
+            border: 1.5px solid #92400e;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .buy-grid a:hover {
+            background: #92400e;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #ebebeb;
+            margin: 2.5rem 0;
+        }
+
+        @media (max-width: 480px) {
+            .book-hero {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .book-hero img {
+                width: 140px;
+                min-width: 140px;
+            }
+
+            .buy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="nav">
@@ -28,26 +120,29 @@
         <a href="/library">Library</a>
     </nav>
 
-    <h1 style="text-align: center;">Young Money</h1>
-
-    <p style="text-align: center; margin: 0.4em auto 0;"><strong>A Field Guide to Wealth and Purpose in Your Twenties.</strong></p>
-
-    <p style="text-align: center; margin: 0.4em auto 1.5em;">Publication date: August 4, 2026. Pre-order your copy now by clicking below:</p>
-
-    <div style="text-align: center; margin: 2rem 0;">
-        <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0FZS5PL15/ref=tmm_hrd_swatch_0" target="_blank"><img src="book-photo.jpg" alt="Young Money book cover" style="max-width: 300px; width: 100%; height: auto;"></a>
+    <!-- Hero: cover + title side by side -->
+    <div class="book-hero">
+        <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0FZS5PL15/ref=tmm_hrd_swatch_0" target="_blank">
+            <img src="book-photo.jpg" alt="Young Money book cover">
+        </a>
+        <div class="book-hero-text">
+            <h1>Young Money</h1>
+            <p class="book-subtitle">A Field Guide to Wealth and Purpose in Your Twenties</p>
+            <p class="book-pubdate">By Jack Raines &middot; Out August 4, 2026</p>
+        </div>
     </div>
 
-    <div class="links book-links">
+    <!-- Buy buttons (top) -->
+    <div class="buy-grid">
         <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0FZS5PL15/ref=tmm_hrd_swatch_0" target="_blank">Amazon (Hardcover)</a>
         <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0G1996VZV" target="_blank">Audible</a>
-        <a href="https://www.barnesandnoble.com/w/young-money-jack-raines/1148682849" target="_blank">Barnes & Noble</a>
+        <a href="https://www.barnesandnoble.com/w/young-money-jack-raines/1148682849" target="_blank">Barnes &amp; Noble</a>
         <a href="https://bookshop.org/p/books/young-money-a-field-guide-to-wealth-and-purpose-in-your-twenties-jack-raines/3bdbc739e3914d1f?ean=9798217046935&next=t" target="_blank">Bookshop.org</a>
         <a href="https://www.booksamillion.com/p/Young-Money/Jack-Raines/9798217046935" target="_blank">Books-A-Million</a>
         <a href="https://books.apple.com/us/audiobook/young-money-a-field-guide-to-wealth-and-purpose-in/id1851366422" target="_blank">Apple Books</a>
     </div>
 
-    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0;">
+    <hr class="divider">
 
     <h2>Why should you read this book?</h2>
 
@@ -65,13 +160,13 @@
 
     <p>So, anyway, if you've followed along for a while, or if you're new here but you liked this piece, I think you'll like this book, and I'd love nothing more than if you ordered your copy here:</p>
 
-    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0;">
+    <hr class="divider">
 
-
-    <div class="links book-links">
+    <!-- Buy buttons (bottom) -->
+    <div class="buy-grid">
         <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0FZS5PL15/ref=tmm_hrd_swatch_0" target="_blank">Amazon (Hardcover)</a>
         <a href="https://www.amazon.com/Young-Money-Wealth-Purpose-Twenties/dp/B0G1996VZV" target="_blank">Audible</a>
-        <a href="https://www.barnesandnoble.com/w/young-money-jack-raines/1148682849" target="_blank">Barnes & Noble</a>
+        <a href="https://www.barnesandnoble.com/w/young-money-jack-raines/1148682849" target="_blank">Barnes &amp; Noble</a>
         <a href="https://bookshop.org/p/books/young-money-a-field-guide-to-wealth-and-purpose-in-your-twenties-jack-raines/3bdbc739e3914d1f?ean=9798217046935&next=t" target="_blank">Bookshop.org</a>
         <a href="https://www.booksamillion.com/p/Young-Money/Jack-Raines/9798217046935" target="_blank">Books-A-Million</a>
         <a href="https://books.apple.com/us/audiobook/young-money-a-field-guide-to-wealth-and-purpose-in/id1851366422" target="_blank">Apple Books</a>
