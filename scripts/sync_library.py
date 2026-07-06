@@ -110,7 +110,52 @@ def merge(state, candidates, today):
     return added
 
 
-def render_html(state, template_path):
+def reconcile_titles(state, html_path):
+    """Pull any manually-edited titles from the currently-published HTML back
+    into the state file, so a from-scratch regeneration doesn't clobber
+    hand-cleaned titles (e.g. fixing a placeholder like "Just a moment...").
+    Matched by normalized URL key, same as dedup."""
+    import html as htmlmod
+    try:
+        with open(html_path) as f:
+            current = f.read()
+    except FileNotFoundError:
+        return 0
+    pattern = re.compile(r'<li><a href="([^"]+)">(.*?)</a>')
+    live_titles = {}
+    for m in pattern.finditer(current):
+        url = htmlmod.unescape(m.group(1))
+        title = htmlmod.unescape(m.group(2))
+        live_titles[normalize_key(url)] = title
+    updated = 0
+    for it in state["items"]:
+        live = live_titles.get(it["key"])
+        if live and live != it["title"]:
+            it["title"] = live
+            updated += 1
+    return updated
+
+
+def split_header_footer(html_path):
+    """Preserve whatever header (nav/h1/intro) and footer currently exist in
+    the published page verbatim, so nav redesigns or copy edits made outside
+    this script aren't reverted by a sync. Splits on the first <h2> and the
+    last </ul>."""
+    with open(html_path) as f:
+        current = f.read()
+    h2_match = re.search(r"^ {4}<h2\b", current, re.MULTILINE)
+    if not h2_match:
+        raise ValueError(f"No section <h2> found in {html_path}")
+    first_h2 = h2_match.start()
+    last_ul_close = current.rindex("</ul>") + len("</ul>")
+    header = current[:first_h2].rstrip("\n")
+    footer = current[last_ul_close:]
+    return header, footer
+
+
+def render_html(state, html_path):
+    header, footer = split_header_footer(html_path)
+
     sections = {name: [] for name in SECTION_ORDER}
     for it in state["items"]:
         sections.setdefault(it["section"], []).append(it)
@@ -144,46 +189,8 @@ def render_html(state, template_path):
         blocks.append(f'    <h2>{name}</h2>\n    <ul class="essay-list">\n{lis}\n    </ul>')
     body = "\n\n".join(blocks)
 
-    page = f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library - Jack Raines</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <meta property="og:title" content="Library - Jack Raines">
-    <meta property="og:description" content="Everything I'm reading and saving, synced daily from my Sublime library.">
-    <meta property="og:image" content="og-image.jpg">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Library - Jack Raines">
-    <meta name="twitter:description" content="Everything I'm reading and saving, synced daily from my Sublime library.">
-    <meta name="twitter:image" content="og-image.jpg">
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/book">Book</a>
-        <a href="/writing">Writing</a>
-        <a href="/projects">Projects</a>
-        <a href="/library">Library</a>
-    </nav>
-
-    <h1 style="text-align: center;">Library</h1>
-
-    <p style="text-align: center; max-width: 600px; margin: 1em auto; color: #888;">Everything I'm reading, saving, and bookmarking, synced daily from my Sublime library.</p>
-
-{body}
-
-</body>
-</html>
-'''
-    with open(template_path, "w") as f:
+    page = f"{header}\n\n{body}\n{footer}"
+    with open(html_path, "w") as f:
         f.write(page)
 
 
@@ -195,6 +202,8 @@ def main():
     args = ap.parse_args()
 
     state = load_state(args.state)
+    reconcile_titles(state, args.html)
+
     with open(args.candidates) as f:
         candidates = json.load(f)
 
