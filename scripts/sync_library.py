@@ -139,26 +139,25 @@ def reconcile_titles(state, html_path):
 def split_header_footer(html_path):
     """Preserve whatever header (nav/h1/intro) and footer currently exist in
     the published page verbatim, so nav redesigns or copy edits made outside
-    this script aren't reverted by a sync. Splits on the first <h2> and the
-    last </ul>."""
+    this script aren't reverted by a sync. Splits on the first <ul (the start
+    of the rendered list, regardless of whether section <h2>s are present)
+    and the last </ul>."""
     with open(html_path) as f:
         current = f.read()
-    h2_match = re.search(r"^ {4}<h2\b", current, re.MULTILINE)
-    if not h2_match:
-        raise ValueError(f"No section <h2> found in {html_path}")
-    first_h2 = h2_match.start()
+    # Match <h2 too (not just <ul) so this cleanly cuts off a leftover
+    # section heading from before section headers were removed.
+    content_match = re.search(r"^ {4}<(ul|h2)\b", current, re.MULTILINE)
+    if not content_match:
+        raise ValueError(f"No <ul> or <h2> found in {html_path}")
+    first_ul = content_match.start()
     last_ul_close = current.rindex("</ul>") + len("</ul>")
-    header = current[:first_h2].rstrip("\n")
-    footer = current[last_ul_close:]
+    header = current[:first_ul].rstrip("\n")
+    footer = current[last_ul_close:].lstrip("\n")
     return header, footer
 
 
 def render_html(state, html_path):
     header, footer = split_header_footer(html_path)
-
-    sections = {name: [] for name in SECTION_ORDER}
-    for it in state["items"]:
-        sections.setdefault(it["section"], []).append(it)
 
     def sort_key(it):
         try:
@@ -166,8 +165,7 @@ def render_html(state, html_path):
         except (TypeError, ValueError):
             return datetime.min
 
-    for name in sections:
-        sections[name].sort(key=sort_key, reverse=True)
+    items = sorted(state["items"], key=sort_key, reverse=True)
 
     def render_item(it):
         import html as htmlmod
@@ -183,13 +181,10 @@ def render_html(state, html_path):
             pass
         return f'        <li><a href="{url}">{label}</a>{source_html}{date_html}</li>'
 
-    blocks = []
-    for name in SECTION_ORDER:
-        lis = "\n".join(render_item(it) for it in sections.get(name, []))
-        blocks.append(f'    <h2>{name}</h2>\n    <ul class="essay-list">\n{lis}\n    </ul>')
-    body = "\n\n".join(blocks)
+    lis = "\n".join(render_item(it) for it in items)
+    body = f'    <ul class="essay-list">\n{lis}\n    </ul>'
 
-    page = f"{header}\n\n{body}\n{footer}"
+    page = f"{header}\n\n{body}\n\n{footer}"
     with open(html_path, "w") as f:
         f.write(page)
 
