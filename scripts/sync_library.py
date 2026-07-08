@@ -194,6 +194,8 @@ def main():
     ap.add_argument("--state", required=True)
     ap.add_argument("--html", required=True)
     ap.add_argument("--candidates", required=True)
+    ap.add_argument("--log", default="library-sync-log.jsonl",
+                     help="Append-only run log, so silent misses are diagnosable later.")
     args = ap.parse_args()
 
     state = load_state(args.state)
@@ -214,6 +216,16 @@ def main():
     by_section = {}
     for it in added:
         by_section[it["section"]] = by_section.get(it["section"], 0) + 1
+
+    log_entry = {
+        "ran_at": datetime.now().isoformat(timespec="seconds"),
+        "candidates_seen": len(candidates),
+        "added": len(added),
+        "by_section": by_section,
+    }
+    with open(args.log, "a") as f:
+        f.write(json.dumps(log_entry) + "\n")
+
     print(json.dumps({"added": len(added), "by_section": by_section}))
 
 
