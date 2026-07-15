@@ -73,7 +73,7 @@ def main():
         except Exception:
             continue
 
-        if pub_date <= most_recent:
+        if pub_date.date() <= most_recent.date():
             continue
 
         title = entry.get("title", "").strip()
@@ -100,10 +100,10 @@ def main():
 
     # Insert after the opening <ul> tag in the Essays section
     # Find the <ul> that immediately follows the Essays <h2>
-    essays_marker = re.search(r'(<h2[^>]*>Essays</h2>\s*<ul>)', html, re.IGNORECASE)
+    essays_marker = re.search(r'(<h2[^>]*>Essays</h2>\s*<ul[^>]*>)', html, re.IGNORECASE)
     if not essays_marker:
         # Fallback: find any <ul> in the essays region
-        ul_match = re.search(r'(<ul>)', html)
+        ul_match = re.search(r'(<ul[^>]*>)', html)
         if not ul_match:
             print("Could not find <ul> in writing.html. Aborting.")
             return
