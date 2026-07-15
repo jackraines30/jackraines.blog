@@ -27,10 +27,10 @@
         .hero {
             max-width: 900px;
             margin: 0 auto;
-            padding: 12rem 1.5rem 3rem;
+            padding: 9rem 1.5rem 1rem;
             display: flex;
             align-items: flex-start;
-            gap: 4rem;
+            gap: 3.5rem;
         }
 
         .hero-text {
@@ -39,75 +39,49 @@
         }
 
         .hero-photo {
-            width: 260px;
+            width: 300px;
             flex-shrink: 0;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
-            margin-top: 1rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            margin-top: 5.5rem;
         }
 
         .hero-photo img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 8px;
+            border-radius: 10px;
         }
 
         .hero-name {
             font-family: 'Inter', system-ui, sans-serif;
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            font-weight: 600;
+            font-size: clamp(2.75rem, 6vw, 4rem);
+            font-weight: 700;
             letter-spacing: -0.035em;
             line-height: 1.0;
-            color: #1c1917;
-            margin-bottom: 1.1rem;
+            color: #111111;
+            margin-bottom: 1.75rem;
         }
 
-        .hero-tagline {
-            font-family: 'Lora', Georgia, serif;
-            font-size: 1.15rem;
-            color: #57534e;
-            margin-bottom: 0;
-            line-height: 1.6;
-        }
-
-        .hero-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 0;
-        }
-
-        .hero-links a {
+        .hero-text p {
             font-family: 'Inter', system-ui, sans-serif;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
+            font-size: 1.15rem;
+            color: #1a1a1a;
+            margin: 0 0 1.4rem;
+            line-height: 1.55;
+        }
+
+        .hero-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .hero-text a {
+            color: #2563eb;
             text-decoration: none;
-            transition: background 0.15s, color 0.15s, border-color 0.15s;
         }
 
-        .hero-links a.primary {
-            background: #1c1917;
-            color: #f9f6f1;
-        }
-
-        .hero-links a.primary:hover {
-            background: #44403c;
-            color: #f9f6f1;
-        }
-
-        .hero-links a.secondary {
-            background: transparent;
-            color: #1c1917;
-            border: 1px solid #d6cfc6;
-        }
-
-        .hero-links a.secondary:hover {
-            border-color: #1c1917;
+        .hero-text a:hover {
+            text-decoration: underline;
         }
 
         /* Content below hero */
@@ -160,23 +134,22 @@
         @media (max-width: 800px) {
             .hero {
                 flex-direction: column;
-                padding: 7rem 1.25rem 3rem;
-                gap: 1.5rem;
+                padding: 7rem 1.25rem 2rem;
+                gap: 1.75rem;
                 max-width: 100%;
             }
 
             .hero-photo {
                 display: block;
                 width: 100%;
+                max-width: 320px;
+                margin-top: 0;
+                order: -1;
             }
 
             .hero-name {
                 font-size: 2.4rem;
-            }
-
-            .hero-links a {
-                padding: 0.55rem 1rem;
-                font-size: 0.78rem;
+                margin-bottom: 1.25rem;
             }
         }
     </style>
@@ -195,8 +168,10 @@
 
     <div class="hero">
         <div class="hero-text">
-            <h1 class="hero-name">Jack<br>Raines.</h1>
-            <p class="hero-tagline">I'm a writer and investor based in New York City. I've been writing <a href="https://www.youngmoney.co/" target="_blank">Young Money</a> on Substack since 2021 — essays on markets, life, and everything in between. My first book, <a href="/book"><em>Young Money: A Field Guide to Wealth and Purpose in Your Twenties</em></a>, is out August 4, 2026.</p>
+            <h1 class="hero-name">Hi, I'm Jack.</h1>
+            <p>I'm a writer and investor based in New York City. I've been writing <a href="https://www.youngmoney.co/" target="_blank">Young Money</a> on Substack since 2021 — essays on markets, life, and everything in between.</p>
+            <p>My first book, <a href="/book"><em>Young Money: A Field Guide to Wealth and Purpose in Your Twenties</em></a>, is out August 4, 2026.</p>
+            <p>By day I'm an investor at <a href="https://slow.co/" target="_blank">Slow Ventures</a>, working on our seed fund and Creator Fund. If you're building something interesting, reach me at <a href="mailto:jack@slow.co">jack@slow.co</a>.</p>
         </div>
         <div class="hero-photo">
             <img src="IMG_1618.jpg" alt="Jack Raines">
@@ -205,10 +180,6 @@
 
     <div class="content-section">
 
-        <h2>About</h2>
-        <p>By day I'm an investor at <a href="https://slow.co/" target="_blank">Slow Ventures</a>, working on our seed fund and Creator Fund. If you're building something interesting, reach me at <a href="mailto:jack@slow.co">jack@slow.co</a>.</p>
-
-        <hr class="section-divider">
 
         <h2>Favorite Essays</h2>
         <ul>
