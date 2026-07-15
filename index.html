@@ -25,63 +25,46 @@
 
         /* Hero */
         .hero {
-            max-width: 900px;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 9rem 1.5rem 1rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 3.5rem;
+            padding: 8rem 1.5rem 1rem;
         }
 
-        .hero-text {
-            flex: 1;
-            min-width: 0;
+        .hero-name {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.0;
+            color: #1c1917;
+            margin-bottom: 1.75rem;
         }
 
         .hero-photo {
-            width: 300px;
-            flex-shrink: 0;
-            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 1.75rem;
+            border-radius: 8px;
             overflow: hidden;
-            margin-top: 5.5rem;
         }
 
         .hero-photo img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 10px;
-        }
-
-        .hero-name {
-            font-family: 'Inter', system-ui, sans-serif;
-            font-size: clamp(2.75rem, 6vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.035em;
-            line-height: 1.0;
-            color: #111111;
-            margin-bottom: 1.75rem;
+            border-radius: 8px;
         }
 
         .hero-text p {
-            font-family: 'Inter', system-ui, sans-serif;
-            font-size: 1.15rem;
-            color: #1a1a1a;
-            margin: 0 0 1.4rem;
-            line-height: 1.55;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.0625rem;
+            color: #292524;
+            margin: 0 0 1.3rem;
+            line-height: 1.85;
         }
 
         .hero-text p:last-child {
             margin-bottom: 0;
-        }
-
-        .hero-text a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        .hero-text a:hover {
-            text-decoration: underline;
         }
 
         /* Content below hero */
@@ -133,18 +116,7 @@
         /* Below 800px: stack vertically, full uncropped photo */
         @media (max-width: 800px) {
             .hero {
-                flex-direction: column;
-                padding: 7rem 1.25rem 2rem;
-                gap: 1.75rem;
-                max-width: 100%;
-            }
-
-            .hero-photo {
-                display: block;
-                width: 100%;
-                max-width: 320px;
-                margin-top: 0;
-                order: -1;
+                padding: 7rem 1.25rem 1rem;
             }
 
             .hero-name {
@@ -167,14 +139,14 @@
     </nav>
 
     <div class="hero">
+        <h1 class="hero-name">Hi, I'm Jack.</h1>
+        <div class="hero-photo">
+            <img src="IMG_1618.jpg" alt="Jack Raines">
+        </div>
         <div class="hero-text">
-            <h1 class="hero-name">Hi, I'm Jack.</h1>
             <p>I'm a writer and investor based in New York City. I've been writing <a href="https://www.youngmoney.co/" target="_blank">Young Money</a> on Substack since 2021 — essays on markets, life, and everything in between.</p>
             <p>My first book, <a href="/book"><em>Young Money: A Field Guide to Wealth and Purpose in Your Twenties</em></a>, is out August 4, 2026.</p>
             <p>By day I'm an investor at <a href="https://slow.co/" target="_blank">Slow Ventures</a>, working on our seed fund and Creator Fund. If you're building something interesting, reach me at <a href="mailto:jack@slow.co">jack@slow.co</a>.</p>
-        </div>
-        <div class="hero-photo">
-            <img src="IMG_1618.jpg" alt="Jack Raines">
         </div>
     </div>
 
