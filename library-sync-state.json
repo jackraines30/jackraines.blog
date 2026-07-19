@@ -16663,6 +16663,22 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-07-18"
+    },
+    {
+      "key": "delian.io/lessons-1",
+      "url": "http://delian.io/lessons-1",
+      "title": "Lessons From Keith Rabois Essay 1: How to Become a Venture Capitalist",
+      "source": "delian.io",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-07-19"
+    },
+    {
+      "key": "x.com/sarthakgh/status/2078538173433483689",
+      "url": "http://www.x.com/sarthakgh/status/2078538173433483689",
+      "title": "Tweet by @sarthakgh",
+      "source": "x.com",
+      "section": "X Bookmarks",
+      "date_added": "2026-07-19"
     }
   ]
 }
