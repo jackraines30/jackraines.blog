@@ -42,18 +42,34 @@
         }
 
         .hero-photo {
-            width: 100%;
-            max-width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
             margin: 0 auto 1.75rem;
-            border-radius: 8px;
-            overflow: hidden;
         }
 
         .hero-photo img {
-            width: 100%;
-            height: auto;
+            height: 260px;
+            width: auto;
             display: block;
+        }
+
+        .hero-headshot img {
             border-radius: 8px;
+        }
+
+        .hero-book {
+            display: block;
+            transition: transform 0.2s ease;
+        }
+
+        .hero-book img {
+            filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.16));
+        }
+
+        .hero-book:hover {
+            transform: translateY(-3px);
         }
 
         .hero-text p {
@@ -124,6 +140,14 @@
                 font-size: 1.4rem;
                 margin-bottom: 1.25rem;
             }
+
+            .hero-photo {
+                gap: 1rem;
+            }
+
+            .hero-photo img {
+                height: 175px;
+            }
         }
     </style>
 </head>
@@ -142,7 +166,12 @@
     <div class="hero">
         <h1 class="hero-name">Hi, I'm Jack</h1>
         <div class="hero-photo">
-            <img src="IMG_7076.jpeg" alt="Jack Raines">
+            <div class="hero-headshot">
+                <img src="IMG_7076.jpeg" alt="Jack Raines">
+            </div>
+            <a class="hero-book" href="https://www.amazon.com/dp/B0FZS5PL15?tag=jackraines-20" target="_blank" rel="noopener">
+                <img src="book-cover-hero.png" alt="Young Money: A Field Guide to Wealth and Purpose in Your Twenties — pre-order on Amazon">
+            </a>
         </div>
         <div class="hero-text">
             <p>I'm a writer and investor based in New York City. I've been writing <a href="https://www.youngmoney.co/" target="_blank">Young Money</a> on Substack since 2021 — essays on markets, life, and everything in between.</p>
