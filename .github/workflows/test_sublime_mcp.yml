@@ -1,0 +1,55 @@
+name: Test Sublime MCP Reachability
+
+on:
+  workflow_dispatch:   # manual trigger only, from the Actions tab
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Probe Sublime MCP endpoint
+        env:
+          SUBLIME_MCP_TOKEN: ${{ secrets.SUBLIME_MCP_TOKEN }}
+        run: |
+          set -x
+          URL="https://mcp.sublime.app/mcp?token=${SUBLIME_MCP_TOKEN}"
+
+          echo "=== 1. initialize ==="
+          curl -sS -i --max-time 20 -X POST "$URL" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json, text/event-stream" \
+            -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"gha-probe","version":"0.1"}}}' \
+            -D headers1.txt -o body1.txt
+          echo "--- headers ---"; cat headers1.txt
+          echo "--- body ---"; cat body1.txt
+          echo
+
+          SESSION_ID=$(grep -i '^mcp-session-id:' headers1.txt | sed -E 's/^[Mm]cp-[Ss]ession-[Ii]d:[[:space:]]*//I' | tr -d '\r')
+          echo "Extracted session id: [$SESSION_ID]"
+
+          SESSION_HEADER=()
+          if [ -n "$SESSION_ID" ]; then
+            SESSION_HEADER=(-H "Mcp-Session-Id: $SESSION_ID")
+          fi
+
+          echo "=== 2. notifications/initialized ==="
+          curl -sS -i --max-time 20 -X POST "$URL" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json, text/event-stream" \
+            "${SESSION_HEADER[@]}" \
+            -d '{"jsonrpc":"2.0","method":"notifications/initialized"}' \
+            -D headers2.txt -o body2.txt
+          echo "--- headers ---"; cat headers2.txt
+          echo "--- body ---"; cat body2.txt
+          echo
+
+          echo "=== 3. tools/call get_collection_items (Work-Related Links, limit 2) ==="
+          curl -sS -i --max-time 20 -X POST "$URL" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json, text/event-stream" \
+            "${SESSION_HEADER[@]}" \
+            -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"get_collection_items","arguments":{"collection_id":"d675e59b-b6fc-4fba-aefb-30ff4a03d206","limit":2}}}' \
+            -D headers3.txt -o body3.txt
+          echo "--- headers ---"; cat headers3.txt
+          echo "--- body ---"; cat body3.txt
