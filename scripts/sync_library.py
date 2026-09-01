@@ -64,14 +64,12 @@ def domain_of(url):
 
 def build_item(candidate, today):
     url = ensure_scheme(candidate["source_url"].strip())
-    entity_type = candidate.get("entity_type", "").lower()
-    if entity_type == "tweet":
-        handle = tweet_handle(url)
-        title = f"Tweet by @{handle}" if handle else "Tweet"
-    else:
-        title = " ".join((candidate.get("title") or "").split())
-        if not title:
-            title = domain_of(url)
+    title = " ".join((candidate.get("title") or "").split())
+    handle = tweet_handle(url)
+    if handle and (not title or title == "Tweet"):
+        title = f"Tweet by @{handle}"
+    elif not title:
+        title = domain_of(url)
     date_added = candidate.get("date_added") or today
     return {
         "key": normalize_key(url),
