@@ -1,0 +1,45 @@
+name: Sync Sublime Library
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # Daily at 1am UTC
+  workflow_dispatch:      # Allow manual runs from the Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch collections from Sublime
+        env:
+          SUBLIME_MCP_TOKEN: ${{ secrets.SUBLIME_MCP_TOKEN }}
+        run: python .github/scripts/fetch_sublime.py "$RUNNER_TEMP"
+
+      - name: Sync library.html from dumps
+        run: |
+          python scripts/sync_from_dumps.py \
+            --state library-sync-state.json --html library.html --log library-sync-log.jsonl \
+            --dump "Everything I'm Reading=$RUNNER_TEMP/dump_diet.txt" \
+            --dump "Useful Learnings=$RUNNER_TEMP/dump_useful.txt" \
+            --dump "Newsletter Topics=$RUNNER_TEMP/dump_newsletter.txt" \
+            --dump "Work-Related Links=$RUNNER_TEMP/dump_work.txt" \
+            --dump "X Bookmarks=$RUNNER_TEMP/dump_xbookmarks.txt"
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add library.html library-sync-state.json library-sync-log.jsonl
+          git diff --cached --quiet || git commit -m "Auto-sync: add new Sublime saves [skip ci]"
+          git push
