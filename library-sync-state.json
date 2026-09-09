@@ -17359,6 +17359,38 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-09-08"
+    },
+    {
+      "key": "nytimes.com/2002/05/26/nyregion/fighting-to-live-as-the-towers-died.html",
+      "url": "http://www.nytimes.com/2002/05/26/nyregion/fighting-to-live-as-the-towers-died.html",
+      "title": "nytimes.com",
+      "source": "nytimes.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-09-09"
+    },
+    {
+      "key": "open.spotify.com/embed/episode/4jmectbziawgqwfrwgijzw",
+      "url": "http://open.spotify.com/embed/episode/4jmEcTbziAwGqWfrWgiJZw",
+      "title": "Kelly Granat",
+      "source": "open.spotify.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-09-09"
+    },
+    {
+      "key": "lennysnewsletter.com/p/how-we-built-grok-bot-in-a-month?isfreemail=true&post_id=214070217&publication_id=10845",
+      "url": "http://www.lennysnewsletter.com/p/how-we-built-grok-bot-in-a-month?publication_id=10845&post_id=214070217&isFreemail=true",
+      "title": "How we built Grok Bot in a month | Roman Ugarte (SpaceXAI)",
+      "source": "lennysnewsletter.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-09-09"
+    },
+    {
+      "key": "x.com/shaanvp/status/2097367896884425060",
+      "url": "http://www.x.com/shaanvp/status/2097367896884425060",
+      "title": "Tweet by @shaanvp",
+      "source": "x.com",
+      "section": "X Bookmarks",
+      "date_added": "2026-09-09"
     }
   ]
 }
