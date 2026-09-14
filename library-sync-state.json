@@ -17423,6 +17423,30 @@
       "source": "esquire.com",
       "section": "Everything I'm Reading",
       "date_added": "2026-09-12"
+    },
+    {
+      "key": "lesswrong.com/posts/lapa2jxoq3n63gztr/some-ways-ai-could-kill-us-all",
+      "url": "http://www.lesswrong.com/posts/LAPa2jxoq3n63GzTr/some-ways-ai-could-kill-us-all",
+      "title": "Vercel Security Checkpoint",
+      "source": "lesswrong.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-09-14"
+    },
+    {
+      "key": "x.com/ethanrkho/status/2098414520557527477",
+      "url": "http://www.x.com/ethanrkho/status/2098414520557527477",
+      "title": "Tweet by @ethanrkho",
+      "source": "x.com",
+      "section": "X Bookmarks",
+      "date_added": "2026-09-14"
+    },
+    {
+      "key": "x.com/brexton/status/2098465336450228397",
+      "url": "http://www.x.com/brexton/status/2098465336450228397",
+      "title": "Tweet by @brexton",
+      "source": "x.com",
+      "section": "X Bookmarks",
+      "date_added": "2026-09-14"
     }
   ]
 }
