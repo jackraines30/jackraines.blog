@@ -17447,6 +17447,14 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-09-14"
+    },
+    {
+      "key": "colossus.com/article/mark-zuckerberg-profile",
+      "url": "http://colossus.com/article/mark-zuckerberg-profile",
+      "title": "Profile of Mark Zuckerberg",
+      "source": "colossus.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-09-15"
     }
   ]
 }
