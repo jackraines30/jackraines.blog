@@ -17543,6 +17543,22 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-09-19"
+    },
+    {
+      "key": "openai.com/index/an-alien-mind",
+      "url": "http://openai.com/index/an-alien-mind",
+      "title": "An Alien Mind | OpenAI",
+      "source": "openai.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-09-20"
+    },
+    {
+      "key": "x.com/finkd/status/2101084678640066765",
+      "url": "http://www.x.com/finkd/status/2101084678640066765",
+      "title": "Tweet by @finkd",
+      "source": "x.com",
+      "section": "X Bookmarks",
+      "date_added": "2026-09-20"
     }
   ]
 }
