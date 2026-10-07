@@ -17719,6 +17719,22 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-10-06"
+    },
+    {
+      "key": "kevinroose.substack.com/p/the-essay-that-started-the-ai-race",
+      "url": "http://kevinroose.substack.com/p/the-essay-that-started-the-ai-race",
+      "title": "The Essay That Started the AI Race",
+      "source": "kevinroose.substack.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-10-07"
+    },
+    {
+      "key": "generalmedicine.co/store/medications",
+      "url": "http://generalmedicine.co/store/medications",
+      "title": "Medications",
+      "source": "generalmedicine.co",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-10-07"
     }
   ]
 }
