@@ -17775,6 +17775,38 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-10-08"
+    },
+    {
+      "key": "youtube.com/watch?v=2btzg-xw9sg",
+      "url": "http://www.youtube.com/watch?v=2BtZg-xW9Sg",
+      "title": "Inside the Business of Blogging -- Tim Urban from \"Wait But Why\"",
+      "source": "youtube.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-10-09"
+    },
+    {
+      "key": "open.spotify.com/episode/0xpbff5tvjv13gy3jbmfh0",
+      "url": "http://open.spotify.com/episode/0XPbff5Tvjv13gy3jbMFH0",
+      "title": "Tim Urban - Grand Theft Life - [Invest Like the Best, EP.59]",
+      "source": "open.spotify.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-10-09"
+    },
+    {
+      "key": "theunintuitive.com/p/27-the-year-everything-changes",
+      "url": "http://theunintuitive.com/p/27-the-year-everything-changes",
+      "title": "27 - The Year Everything Changes",
+      "source": "theunintuitive.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-10-09"
+    },
+    {
+      "key": "x.com/ryanlockai/status/2107864069105389717",
+      "url": "http://www.x.com/ryanlockai/status/2107864069105389717",
+      "title": "Tweet by @ryanlockai",
+      "source": "x.com",
+      "section": "X Bookmarks",
+      "date_added": "2026-10-09"
     }
   ]
 }
