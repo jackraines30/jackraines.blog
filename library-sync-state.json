@@ -17999,6 +17999,38 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-10-26"
+    },
+    {
+      "key": "jared.xyz/deal-feelings",
+      "url": "http://jared.xyz/deal-feelings",
+      "title": "Deal Feelings",
+      "source": "jared.xyz",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-10-27"
+    },
+    {
+      "key": "open.spotify.com/episode/2pskqpy6pw6hakq6wsmoeb",
+      "url": "http://open.spotify.com/episode/2psKQPy6Pw6hAKq6WsMOEB",
+      "title": "Gaurav Misra & Dwight Churchill - Building Captions - [Invest Like the Best, EP.405]",
+      "source": "open.spotify.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-10-27"
+    },
+    {
+      "key": "washingtonpost.com/archive/business/1983/07/17/guerrillas-shift-power-balance-in-the-office/e4a26a77-0100-4b00-b832-18310481719d",
+      "url": "http://www.washingtonpost.com/archive/business/1983/07/17/guerrillas-shift-power-balance-in-the-office/e4a26a77-0100-4b00-b832-18310481719d",
+      "title": "Guerrillas Shift Power Balance In the Office",
+      "source": "washingtonpost.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-10-27"
+    },
+    {
+      "key": "sec.gov/archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+      "url": "http://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+      "title": "SEC.gov | Your Request Originates from an Undeclared Automated Tool",
+      "source": "sec.gov",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-10-27"
     }
   ]
 }
