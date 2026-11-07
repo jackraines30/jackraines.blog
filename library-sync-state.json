@@ -18311,6 +18311,30 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-11-06"
+    },
+    {
+      "key": "nothinghuman.substack.com/p/some-memories-of-early-anthropic",
+      "url": "http://nothinghuman.substack.com/p/some-memories-of-early-anthropic",
+      "title": "Some Memories of Early Anthropic",
+      "source": "nothinghuman.substack.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-11-07"
+    },
+    {
+      "key": "drewfallon.substack.com/p/deep-dive-nerds",
+      "url": "http://drewfallon.substack.com/p/deep-dive-nerds",
+      "title": "Deep Dive: Nerds",
+      "source": "drewfallon.substack.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-11-07"
+    },
+    {
+      "key": "99d.substack.com/p/the-economy-is-the-corpus",
+      "url": "http://99d.substack.com/p/the-economy-is-the-corpus",
+      "title": "Data to deployment",
+      "source": "99d.substack.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-11-07"
     }
   ]
 }
