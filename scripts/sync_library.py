@@ -13,15 +13,17 @@ Sublime MCP tool's get_collection_items, each with:
      "date_added": "YYYY-MM-DD" (optional; defaults to today)}
 
 Only genuinely new items (by normalized URL) are added. File-type cards and
-title-less/source-less highlights are skipped. Prints how many items were
-added, and by which section, as JSON on stdout.
+title-less/source-less highlights are skipped. Stratechery subscriber links
+are stored as the public article URL: access-token and subscriber query
+params are stripped before dedupe, so a passport link cannot be republished.
+Prints how many items were added, and by which section, as JSON on stdout.
 """
 import argparse
 import json
 import re
 import sys
 from datetime import date, datetime
-from urllib.parse import urlsplit, parse_qsl, urlencode
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 SECTION_ORDER = [
     "Everything I'm Reading",
@@ -35,6 +37,15 @@ TRACKING_PARAMS = re.compile(
     r"^(utm_.*|mkt_tok|si|fbclid|gclid|ref|reflink|trackingid|smid|st|triedredirect|hide_intro_popup)$",
     re.IGNORECASE,
 )
+# Stratechery passport links put the subscriber credential in the query
+# string (access_token is a JWT whose "sub" claim is the subscriber id).
+# These are not campaign parameters: they must be removed from the stored
+# URL itself, not only from the dedupe key.
+STRATECHERY_SECRET_PARAMS = re.compile(
+    r"^(access[_-]?token|subscriber([_-]?id)?)$",
+    re.IGNORECASE,
+)
+JWT_VALUE = re.compile(r"^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$")
 
 
 def tweet_handle(url):
@@ -48,10 +59,55 @@ def ensure_scheme(url):
     return url
 
 
+def is_stratechery_host(netloc):
+    host = netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    return host == "stratechery.com" or host.endswith(".stratechery.com")
+
+
+def is_stratechery_secret_param(name, value):
+    if STRATECHERY_SECRET_PARAMS.match(name):
+        return True
+    # Passport sometimes renames the query key; the credential is still a JWT.
+    return bool(value) and bool(JWT_VALUE.match(value))
+
+
+def sanitize_url(url):
+    """Public form of a saved URL.
+
+    Stratechery links drop access-token / subscriber query params (and any
+    other query value that is itself a JWT). Every other URL is returned
+    unchanged, aside from adding a scheme when one is missing.
+    """
+    url = ensure_scheme(url.strip())
+    parts = urlsplit(url)
+    if not is_stratechery_host(parts.netloc):
+        return url
+    pairs = parse_qsl(parts.query, keep_blank_values=True)
+    kept = [(k, v) for k, v in pairs if not is_stratechery_secret_param(k, v)]
+    if len(kept) == len(pairs):
+        return url
+    return urlunsplit((
+        parts.scheme,
+        parts.netloc,
+        parts.path,
+        urlencode(kept, doseq=True),
+        parts.fragment,
+    ))
+
+
 def normalize_key(url):
     parts = urlsplit(url.lower())
     netloc = parts.netloc[4:] if parts.netloc.startswith("www.") else parts.netloc
-    q = [(k, v) for k, v in parse_qsl(parts.query) if not TRACKING_PARAMS.match(k)]
+    stratechery = is_stratechery_host(netloc)
+    q = []
+    for k, v in parse_qsl(parts.query):
+        if TRACKING_PARAMS.match(k):
+            continue
+        if stratechery and is_stratechery_secret_param(k, v):
+            continue
+        q.append((k, v))
     query = urlencode(sorted(q))
     path = parts.path.rstrip("/")
     return f"{netloc}{path}?{query}" if query else f"{netloc}{path}"
@@ -63,7 +119,7 @@ def domain_of(url):
 
 
 def build_item(candidate, today):
-    url = ensure_scheme(candidate["source_url"].strip())
+    url = sanitize_url(candidate["source_url"])
     title = " ".join((candidate.get("title") or "").split())
     handle = tweet_handle(url)
     if handle and (not title or title == "Tweet"):
@@ -89,7 +145,46 @@ def load_state(path):
         return {"items": []}
 
 
+def scrub_stratechery_secrets(state):
+    """Remove subscriber tokens already stored on Stratechery items.
+
+    A tokenized URL is rewritten to the public article URL. When that public
+    URL is already in the library, the tokenized duplicate is dropped and the
+    existing entry is left as it was.
+    """
+    items = state.get("items") or []
+    prepared = []
+    for it in items:
+        original = it.get("url") or ""
+        sanitized = sanitize_url(original)
+        dirty = sanitized != original
+        key = normalize_key(sanitized) if dirty else it.get("key")
+        prepared.append((it, sanitized, key, dirty))
+
+    seen = set()
+    drop = set()
+    # Visit already-clean items first so a public URL wins the key collision.
+    for i in sorted(range(len(prepared)), key=lambda i: prepared[i][3]):
+        key = prepared[i][2]
+        if key in seen:
+            drop.add(i)
+            continue
+        seen.add(key)
+
+    kept = []
+    for i, (it, sanitized, key, dirty) in enumerate(prepared):
+        if i in drop:
+            continue
+        if dirty:
+            it["url"] = sanitized
+            it["key"] = key
+            it["source"] = domain_of(sanitized)
+        kept.append(it)
+    state["items"] = kept
+
+
 def merge(state, candidates, today):
+    scrub_stratechery_secrets(state)
     existing_keys = {it["key"] for it in state["items"]}
     added = []
     for c in candidates:
