@@ -18503,6 +18503,38 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-11-10"
+    },
+    {
+      "key": "letters.ezrasnotes.com/index.html",
+      "url": "http://letters.ezrasnotes.com/index.html",
+      "title": "Investor Letters \u00b7 Ezra's Notes",
+      "source": "letters.ezrasnotes.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-11-11"
+    },
+    {
+      "key": "posthog.com/founders/actual-marketing-budget-2026",
+      "url": "http://posthog.com/founders/actual-marketing-budget-2026",
+      "title": "How we're spending our marketing budget in 2026 (with actual $ figures) - PostHog",
+      "source": "posthog.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-11-11"
+    },
+    {
+      "key": "x.com/claudeai/status/2119899468812386425",
+      "url": "http://www.x.com/claudeai/status/2119899468812386425",
+      "title": "Tweet by @claudeai",
+      "source": "x.com",
+      "section": "X Bookmarks",
+      "date_added": "2026-11-11"
+    },
+    {
+      "key": "x.com/ashton_1nvests/status/2119608111640219651",
+      "url": "http://www.x.com/ashton_1nvests/status/2119608111640219651",
+      "title": "Tweet by @ashton_1nvests",
+      "source": "x.com",
+      "section": "X Bookmarks",
+      "date_added": "2026-11-11"
     }
   ]
 }
