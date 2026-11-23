@@ -18807,6 +18807,30 @@
       "source": "x.com",
       "section": "X Bookmarks",
       "date_added": "2026-11-22"
+    },
+    {
+      "key": "github.com/janestreet/agent_skills/tree/master/socratic-tutor",
+      "url": "http://github.com/janestreet/agent_skills/tree/master/socratic-tutor",
+      "title": "agent_skills/socratic-tutor at master \u00b7 janestreet/agent_skills",
+      "source": "github.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-11-23"
+    },
+    {
+      "key": "open.spotify.com/episode/1coca8htopfcdssw9ll2cu",
+      "url": "http://open.spotify.com/episode/1COcA8hTopfcdSSw9lL2CU",
+      "title": "Hedge Fund Manager David Orr: Investing is 99% Talent",
+      "source": "open.spotify.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-11-23"
+    },
+    {
+      "key": "kyla.substack.com/p/what-happens-when-we-try-to-know",
+      "url": "http://kyla.substack.com/p/what-happens-when-we-try-to-know",
+      "title": "What Happens When We Try to Know Everything?",
+      "source": "kyla.substack.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-11-23"
     }
   ]
 }
