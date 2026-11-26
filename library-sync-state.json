@@ -18871,6 +18871,14 @@
       "source": "open.spotify.com",
       "section": "Everything I'm Reading",
       "date_added": "2026-11-25"
+    },
+    {
+      "key": "mhdempsey.substack.com/p/the-business-of-anthropic",
+      "url": "http://mhdempsey.substack.com/p/the-business-of-anthropic",
+      "title": "Anthropic is an incredibly simple business",
+      "source": "mhdempsey.substack.com",
+      "section": "Everything I'm Reading",
+      "date_added": "2026-11-26"
     }
   ]
 }
